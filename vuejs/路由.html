@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>Hello App！</h1>
+        <p>
+            <router-link to="/">首页</router-link>
+            <router-link to="/student">会员管理</router-link>
+            <router-link to="/teacher">讲师管理</router-link>
+        </p>
+        <!--路由匹配到的组件渲染在这里 -->
+        <router-view></router-view>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script src="vue-router.min.js"></script>
+    <script>
+        const Welcome ={template: '<div>欢迎</div>'}
+        const Student ={template: '<div>student list</div>'}
+        const Teacher ={template: '<div>teacher list</div>'}
+
+        const routes= [
+            {path:'/',redirect: '/webcome'},
+            {path:'/welcome',component: Welcome},
+            {path:'/student',component: Student},
+            {path:'/teacher',component: Teacher}
+        ]
+        const router = new VueRouter({
+            routes
+        })
+        new Vue({
+            el:'#app',
+            router
+        })
+    </script>
+   
+    
+</body>
+
+
+</html>

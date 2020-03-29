@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="keyword">
+        
+        <button v-on:click="search()">查询</button> 
+        <p v-if = "addressList.length>0">校区地址是:</p>
+        <ul>
+            <li v-for="adress in addressList">{{adress}}</li>
+        </ul>   
+    </div>
+    
+
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                keyword: '尚硅谷',
+                addressList: []
+            },
+            methods: {
+                search(){
+                    this.addressList = ['北京','上海','深圳'],
+                    console.log(this.addressList)
+                }
+            }
+            }    
+        )
+    </script>
+</body>
+</html>

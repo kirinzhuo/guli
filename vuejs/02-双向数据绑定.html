@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <dev id="app">
+        <input type="text" v-model="user.username">
+        <input type="text" v-model="user.age">
+        <button @click="submitForm()">提交</button>
+        <p>您输入的是{{user.username}}，{{user.age}}</p>
+    </dev>
+    <script src="vue.min.js"></script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                user:{
+                    username:'kirin',
+                      age:18
+                }
+                
+            },
+            methods: {
+                submitForm(){
+                    console.log(this.user)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
